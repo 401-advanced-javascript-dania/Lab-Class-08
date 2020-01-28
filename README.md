@@ -7,7 +7,7 @@
 ### Links and Resources
 
 - [submission PR](https://github.com/401-advanced-javascript-dania/Lab-Class-08/pull/1)
-- [ci/cd]()
+- [ci/cd](https://github.com/401-advanced-javascript-dania/Lab-Class-08/actions)
 - [swagger_hub]()
 
 
