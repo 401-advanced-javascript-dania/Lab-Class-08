@@ -15,7 +15,7 @@ function getProducts(req,res,next){
     .catch(next)
 }
 function postProducts(req,res,next){
-    product.create()
+    product.create(req.body)
     .then(data=>{
         res.status(201).json(data);
     })

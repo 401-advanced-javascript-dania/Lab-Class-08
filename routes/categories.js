@@ -15,7 +15,7 @@ router.delete('/categories',deleteCategories);
      .catch(next)
  }
  function postCategories(req,res,next){
-     categories.create()
+     categories.create(req.body)
      .then(data=>{
          res.status(201).json(data);
      })

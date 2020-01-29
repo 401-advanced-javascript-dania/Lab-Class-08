@@ -19,4 +19,35 @@ return categories.create(testObj)
             })
         })
     })
+    it('can update() a categories item',()=>{
+        let obj={name:'test categories'};
+        return categories.create(obj)
+        .then(record=>{
+            categories.get(record._id)
+            categories.update(record._id,record)
+            .then(Item=>{
+                Object.keys(obj).forEach(key=>{
+                    expect(Item[key]).toEqual(obj[key])
+                })
+            })
+
+        })
+
+    })
+    it('can delete() a categories item ',()=>{
+        let obj={name:'test categories'};
+        return categories.create(obj)
+        .then(record=>{
+            categories.get(record._id)
+            categories.delete(record._id)
+            .then(Item=>{
+                Object.keys(obj).forEach(key=>{
+                    expect(Item[key]).toEqual(obj[key])
+
+                })
+            })
+
+        })  
+
+    })
 })
