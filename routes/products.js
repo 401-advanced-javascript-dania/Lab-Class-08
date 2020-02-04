@@ -1,38 +1,38 @@
-'use strict';
-const express =require('express');
-const product=require('../models/products/products-model.js');
-const router =express.Router();
+
+const express = require('express');
+const product = require('../models/products/products-model.js');
+const router = express.Router();
 //Define our route
 router.get('/products',getProducts);
 router.post('/products',postProducts);
-router.put('/products',putProducts);
-router.delete('/products',deleteProducts);
+router.put('/products/:id',putProducts);
+router.delete('/products/:id',deleteProducts);
 function getProducts(req,res,next){
-    product.get()
+  product.get()
     .then(data=>{
-        res.status(200).json(data)
+      res.status(200).json(data);
     })
-    .catch(next)
+    .catch(next);
 }
 function postProducts(req,res,next){
-    product.create(req.body)
+  product.create(req.body)
     .then(data=>{
-        res.status(201).json(data);
+      res.status(201).json(data);
     })
-    .catch(next)
+    .catch(next);
 }
 function putProducts(req,res,next){
-    product.update()
-     .then(data=>{
-         res.status(200).json(data)
-     })
-     .catch(next)
+  product.update(req.params.id,req.body)
+    .then(data=>{
+      res.status(200).json(data);
+    })
+    .catch(next);
 }
 function deleteProducts(req,res,next){
-    product.delete()
-     .then(data=>{
-         res.status(200).json(data)
-     })
-     .catch(next)
+  product.delete(req.params.id)
+    .then(data=>{
+      res.status(200).json(data);
+    })
+    .catch(next);
 }
-module.exports=router;
+module.exports = router;
